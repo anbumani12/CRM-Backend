@@ -5,8 +5,6 @@ const create = async (req, res) => {
   try {
     req.body.no = `SR${+new Date()}`;
     let data = await SRModel.create(req.body);
-    // data = {...data,no:`SR${+new Date()}`}
-    // console.log(data,"data")
     await EmailService.sendMailWithData(data);
     console.log(data,"data")
 

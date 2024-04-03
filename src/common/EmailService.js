@@ -18,7 +18,7 @@ const generateEmailText = (data) => {
       data.no
     }. You can check your status in this link: ${
     process.env.FRONTEND_URL
-  }/status/${data.no}.
+  }/statuspage
     We will also send you all the updates in the mail. Your details we received are as follows:
     Category: ${data.category}
     Title: ${data.title}
@@ -58,7 +58,6 @@ const welcomeEmail = async (req, res) => {
   try {
     console.log(req, "request");
     const data = req.body;
-    console.log(data, "anbumani");
     await sendMailWithData(data);
 
     res.send({ message: "Email sent successfully." });
